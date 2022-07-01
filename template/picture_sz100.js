@@ -419,6 +419,7 @@ var onDblTouch_end_time ;
 var STdblTouch
 
 var Xd, Yd, Xm, Ym; // mouse down, move position
+var X2d, Y2d, X2m, Y2m, evtX, evtY, evtDelta; // multi-touch down, multi-touch position, pinch zoom effect
 var x1, y1, x2, y2; // bgimg dynamic css position
 var X1, Y1, X2, Y2; // bgimg static css position
 var c1x,c1y,c2x,c2y; // bgimg static center coordinate
@@ -441,28 +442,64 @@ var zFactorPrev;
 function sz100Image_init()
 {
 	document.getElementById('z_yeux').onmousedown = document.getElementById('z_yeux').ontouchstart = function(evt){
-		Xm = Xd = evt.clientX || evt.touches[0].pageX
-		Ym = Yd = evt.clientY || evt.touches[0].pageY
-		clearInterval(SI1);
-		SI1=setInterval(function () {
-			moveimage(Xm-Xd, Ym-Yd)
-			switch (etat) {
-				case 0 : {document.getElementById('z_vue_droite').style.cursor = document.getElementById('z_vue_gauche').style.cursor = '' ; break;}
-				case 1 : {document.getElementById('z_vue_droite').style.cursor = document.getElementById('z_vue_gauche').style.cursor = 'grabbing' ; break;}
-				case 2 : {document.getElementById('z_vue_droite').style.cursor = 'wait'; document.getElementById('z_vue_gauche').style.cursor = 'grabbing' ; break;}
-			}
-		}, 50);
+		evt.preventDefault();
+		if (evt.touches && evt.touches.length==2) { 
+			Xm = Xd = evt.touches[0].pageX
+			Ym = Yd = evt.touches[0].pageY
+			clearInterval(SI1);
+			
+			X2m = X2d = evt.touches[1].pageX
+			Y2m = Y2d = evt.touches[1].pageY
+			
+			var elInfo = this.getBoundingClientRect();
+			evtX = (X2d+Xd)/2 - elInfo.left
+			if (elInfo.width/2 < evtX) evtX -= elInfo.width/2 ;
+			evtY = (Y2d+Yd)/2 - elInfo.top
+			
+			evtDelta = 0
+			
+			clearInterval(SI2);
+			SI2=setInterval(function () {
+				zoomimage(evtX, evtY, evtDelta)
+			}, 50);
+		}
+		else {
+			Xm = Xd = evt.clientX || evt.touches[0].pageX
+			Ym = Yd = evt.clientY || evt.touches[0].pageY
+			clearInterval(SI1);
+			clearInterval(SI2);
+			SI1=setInterval(function () {
+				moveimage(Xm-Xd, Ym-Yd)
+				switch (etat) {
+					case 0 : {document.getElementById('z_vue_droite').style.cursor = document.getElementById('z_vue_gauche').style.cursor = '' ; break;}
+					case 1 : {document.getElementById('z_vue_droite').style.cursor = document.getElementById('z_vue_gauche').style.cursor = 'grabbing' ; break;}
+					case 2 : {document.getElementById('z_vue_droite').style.cursor = 'wait'; document.getElementById('z_vue_gauche').style.cursor = 'grabbing' ; break;}
+				}
+			}, 50);
+		}
+		evt.stopPropagation();
 	}
 	document.getElementById('z_yeux').onmousemove = document.getElementById('z_yeux').ontouchmove = function(evt){
-		Xm = evt.clientX || evt.touches[0].pageX
-		Ym = evt.clientY || evt.touches[0].pageY
-		
 		evt.preventDefault();
-// 		evt.stopPropagation();
-
+		if (evt.touches && evt.touches.length==2) {
+			Xm = evt.touches[0].pageX
+			Ym = evt.touches[0].pageY				
+			X2m = evt.touches[1].pageX
+			Y2m = evt.touches[1].pageY
+			
+			// 		evtDelta = -evt.deltaY * zCteWheel
+			evtDelta = Math.log2(((X2m-Xm)*(X2m-Xm)+(Y2m-Ym)*(Y2m-Ym))/((X2d-Xd)*(X2d-Xd)+(Y2d-Yd)*(Y2d-Yd)))
+			
+		}
+		else {
+			Xm = evt.clientX || evt.touches[0].pageX
+			Ym = evt.clientY || evt.touches[0].pageY
+		}
+		evt.stopPropagation();
 	}
 	document.getElementById('z_yeux').onmouseout = document.getElementById('z_yeux').onmouseup = document.getElementById('z_yeux').ontouchend = document.getElementById('z_yeux').ontouchcancel = function(evt){
 		clearInterval(SI1);
+		clearInterval(SI2);
 		moveimage_end()
 		document.getElementById('z_vue_droite').style.cursor = document.getElementById('z_vue_gauche').style.cursor = 'grab' ; 
 	}
