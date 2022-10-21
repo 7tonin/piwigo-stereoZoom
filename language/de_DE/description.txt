@@ -1,0 +1,1 @@
+Handhabung der jpeg-Stereogrammdarstellung (zwei nebeneinander liegende Ansichten), Kreuz- oder Parallelansicht, Gesamtansicht oder Zoom 100%, Navigation in der gezoomten Ansicht.

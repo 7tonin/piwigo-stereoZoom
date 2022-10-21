@@ -1,0 +1,1 @@
+Håndterer visning af JPEG-stereogram (ved siden af hinanden samlet visningssæt), skeleøjet eller normalsyn, global visning eller zoom til 100 procent, navigering i zoomvisning.
