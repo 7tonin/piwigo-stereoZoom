@@ -1,0 +1,1 @@
+Behandel jpeg stereogramweergave (naast elkaar verbonden paar aanzichten), kruis- of paralleloog, globale weergave of zoom 100%, navigatie in ingezoomde weergave.
