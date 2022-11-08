@@ -1,0 +1,1 @@
+Lidar com exibição de estereograma jpeg (par de visualizações lado a lado unidos), olho cruzado ou paralelo, visão global ou zoom de 100%, navegação em visualização ampliada.
