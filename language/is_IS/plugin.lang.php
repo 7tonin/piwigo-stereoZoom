@@ -36,3 +36,6 @@ $lang['Zoom −&#013;[−] key'] = 'Þysja −&#013;[−] lykill';
 $lang['drag : move&#013;double click : next'] = 'draga : færa&#013;tvísmella : næsta';
 $lang['drag : move&#013;double click : previous'] = 'draga : færa&#013;tvísmella : fyrri';
 $lang['for instance: _rl, -lr, stereo, ...'] = 'til dæmis: _rl, -lr, steríó, ...';
+$lang['Full screen&#013;[F] key'] = 'Allur skjárinn&#013;[F] lykill';
+$lang['Full window&#013;[W] key'] = 'Allur glugginn&#013;[W] lykill';
+$lang['Help&#013;[?] key'] = 'Hjálp&#013;[?] lykill';
