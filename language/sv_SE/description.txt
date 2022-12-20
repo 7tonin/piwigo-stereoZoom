@@ -1,0 +1,1 @@
+Hantera jpeg-stereogramvisning (sida vid sida sammanfogade vyer), kors- eller parallellöga, global vy eller zoom 100 %, navigering i zoomad vy.
