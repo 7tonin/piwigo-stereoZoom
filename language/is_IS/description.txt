@@ -1,0 +1,1 @@
+Meðhöndla jpeg tvímynda sýningu (hlið við hlið sameinað par af myndasýn), kross eða samhliða auga, heildarsýn eða aðdráttur 100%, fara í aðdráttarsýn.
