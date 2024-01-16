@@ -1,0 +1,1 @@
+Gestione della visualizzazione degli stereogrammi jpeg (coppie di viste affiancate unite), occhio incrociato o parallelo, vista globale o zoom al 100%, navigazione nella vista ingrandita.
