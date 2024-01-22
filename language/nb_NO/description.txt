@@ -1,0 +1,1 @@
+Håndter jpeg-stereogramvisning (side ved side sammenkoblede visninger), kryss- eller parallelløye, global visning eller zoom 100 %, navigering i zoomet visning.
