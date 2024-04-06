@@ -1,0 +1,1 @@
+Maneja la visualización de estereogramas JPEG (pares de vistas unidas una al lado de la otra), en vista cruzada o en paralelo, vista global o zoom al 100%, con navegación en la vista ampliada.
