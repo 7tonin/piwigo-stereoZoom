@@ -1,0 +1,1 @@
+Gestiona la visualització d'estereogrames JPEG (parelles de vistes unides una al costat de l'altra), en vista creuada o en paral·lel, vista global o zoom al 100%, amb navegació a la vista ampliada.
