@@ -1,0 +1,1 @@
+Jpeg stereogram gösterimini (yan yana birleştirilmiş görünüm çiftleri), çapraz veya paralel göz, global görünüm veya %100 yakınlaştırma, yakınlaştırılmış görünümde gezinmeyi yönetin.
