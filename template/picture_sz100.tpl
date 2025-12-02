@@ -5,9 +5,6 @@
 {combine_script id="skeleton" path=$STEREOZOOM_PATH|cat:"template/picture_sz100.js"}
 
 
-<pre style="text-align:left; display:none;">
-{var_export($pictureId, true)}
-</pre>
 <ul id="sz100tools">
 <li><a href="#" id="toggleView" title="{'Switch right and left views&#013;[X] key'|translate}" >X</a></li>
 <li><a href="#" id="toggleDA" title="{'Move: both views are displaced with the mouse&#013;Adjust: a single view is displaced with the mouse&#013;[Ctrl] key + mouse'|translate}" >Ctrl</a></li>
